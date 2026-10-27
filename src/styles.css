@@ -1,0 +1,20 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "./ios.css";
+
+@theme inline {
+  --color-background: #faf7f2;
+  --color-foreground: #1f2724;
+  --color-primary: #3f6657;
+  --color-primary-foreground: #ffffff;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  background: #e4dcd0;
+  color: #1f2724;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", sans-serif;
+}
