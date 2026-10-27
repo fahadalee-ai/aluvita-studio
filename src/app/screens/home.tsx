@@ -32,7 +32,7 @@ export function HomeScreen() {
       title={greeting(name)}
       trailing={
         <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-          <img src={logoUrl} alt="" style={{ height: 28, width: 64, objectFit: "contain", borderRadius: 6, background: "#000" }} />
+          <img src={logoUrl} alt="Aluvita Studio" style={{ height: 36, width: "auto", borderRadius: 8, background: "#faf7f2" }} />
           <BellButton />
         </span>
       }

@@ -1,4 +1,4 @@
-import logo from "@/img/logo.png";
+import logo from "@/img/logo.jpg";
 import onboarding1 from "@/img/ai/onboarding-1.jpg";
 import onboarding2 from "@/img/ai/onboarding-2.jpg";
 import onboarding3 from "@/img/ai/onboarding-3.jpg";

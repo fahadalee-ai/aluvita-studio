@@ -1032,8 +1032,8 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 20px;
-  background: #000;
+  border-radius: 18px;
+  background: #faf7f2;
 }
 
 .alu-tag {

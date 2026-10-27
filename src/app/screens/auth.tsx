@@ -121,7 +121,7 @@ export function WelcomeScreen() {
   return (
     <div className="alu-fill">
       <div className="alu-scroll" style={{ padding: "78px 20px 28px", display: "flex", flexDirection: "column" }}>
-        <img src={logoUrl} alt="Aluvita Studio" style={{ width: 168, borderRadius: 16, background: "#000" }} />
+        <img src={logoUrl} alt="Aluvita Studio" style={{ width: 240, borderRadius: 16, background: "#faf7f2" }} />
         <h1 className="alu-t1" style={{ margin: "22px 0 8px" }}>Welcome to Aluvita Studio</h1>
         <p className="alu-c" style={{ color: "var(--muted)", marginTop: 0 }}>A quiet room on Union Street. Book a class, keep your credits, and come back when you are ready.</p>
         <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: 10 }}>
@@ -162,7 +162,7 @@ export function LoginScreen() {
     >
       <div className="alu-scroll" style={{ padding: "64px 20px 28px" }}>
         <button type="button" className="alu-linkish" onClick={() => app.pop()}>Back</button>
-        <img src={logoUrl} alt="Aluvita Studio" style={{ width: 140, borderRadius: 14, background: "#000", marginTop: 8 }} />
+        <img src={logoUrl} alt="Aluvita Studio" style={{ width: 220, borderRadius: 16, background: "#faf7f2", marginTop: 8 }} />
         <h1 className="alu-t1" style={{ margin: "16px 0" }}>Log In</h1>
         <TextField label="Email" type="email" value={email} onChange={setEmail} />
         <TextField label="Password" type="password" value={password} onChange={setPassword} error={error} />
@@ -255,7 +255,7 @@ export function RegisterScreen() {
     >
       <div className="alu-scroll" style={{ padding: "64px 20px 32px" }}>
         <button type="button" className="alu-linkish" onClick={() => app.pop()}>Back</button>
-        <img src={logoUrl} alt="Aluvita Studio" style={{ width: 120, borderRadius: 12, background: "#000", margin: "8px 0" }} />
+        <img src={logoUrl} alt="Aluvita Studio" style={{ width: 220, borderRadius: 16, background: "#faf7f2", margin: "8px 0" }} />
         <h1 className="alu-t1" style={{ margin: "8px 0 16px" }}>Create Account</h1>
         <TextField label="Full Name" value={form.name} onChange={(v) => set("name", v)} error={errors.name} />
         <TextField label="Email" type="email" value={form.email} onChange={(v) => set("email", v)} error={errors.email} />
