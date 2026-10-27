@@ -1,6 +1,30 @@
 import { createStart, createCsrfMiddleware, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
+import previewHtml from "./preview-document.html?raw";
+
+function previewResponse() {
+  return new Response(previewHtml, {
+    headers: {
+      "content-type": "text/html; charset=utf-8",
+      "cache-control": "no-cache",
+    },
+  });
+}
+
+function isPreviewPath(pathname: string) {
+  const path = pathname.split("?")[0]?.replace(/\/+$/, "") || "/";
+  return path === "/preview.html";
+}
+
+// The app router only knows `/`. A direct visit to `/preview.html` was falling
+// through to the not-found page, including on Vercel where the static file
+// did not win over the server function.
+const previewMiddleware = createMiddleware().server(async ({ next, pathname, request }) => {
+  const urlPath = new URL(request.url).pathname;
+  if (isPreviewPath(pathname) || isPreviewPath(urlPath)) return previewResponse();
+  return next();
+});
 
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
   try {
@@ -25,5 +49,5 @@ const csrfMiddleware = createCsrfMiddleware({
 });
 
 export const startInstance = createStart(() => ({
-  requestMiddleware: [errorMiddleware, csrfMiddleware],
+  requestMiddleware: [previewMiddleware, errorMiddleware, csrfMiddleware],
 }));
