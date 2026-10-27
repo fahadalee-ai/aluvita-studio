@@ -68,7 +68,7 @@ export function OnboardingScreen() {
       <div
         ref={scroller}
         onScroll={(e) => setPage(Math.round(e.currentTarget.scrollLeft / Math.max(1, e.currentTarget.clientWidth)))}
-        style={{ display: "flex", overflowX: "auto", scrollSnapType: "x mandatory", height: "100%" }}
+        style={{ display: "flex", overflowX: "auto", scrollSnapType: "x mandatory", height: "100%", scrollbarWidth: "none" }}
       >
         {pages.map((item) => (
           <section key={item.title} style={{ minWidth: "100%", scrollSnapAlign: "start", display: "flex", flexDirection: "column" }}>

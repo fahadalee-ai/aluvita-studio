@@ -153,6 +153,12 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
+
+    iframe::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
   </style>
 </head>
 
@@ -289,6 +295,16 @@
       return location.origin + base;
     }
 
+    function withEmbed(url) {
+      try {
+        var next = new URL(url);
+        next.searchParams.set("embed", "1");
+        return next.toString();
+      } catch (e) {
+        return url;
+      }
+    }
+
     function safeParseUrl(maybeUrl) {
       let url;
       try {
@@ -307,7 +323,7 @@
 
       const params = new URLSearchParams(location.search);
       const overrideUrl = params.get("url");
-      const finalUrl = safeParseUrl(overrideUrl) || defaultAppUrl();
+      const finalUrl = withEmbed(safeParseUrl(overrideUrl) || defaultAppUrl());
 
       // Set src only on the iframe that will actually be visible.
       if (isIOS) {

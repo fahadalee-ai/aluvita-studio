@@ -193,15 +193,24 @@
   position: relative;
 }
 
+.alu,
+.alu * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.alu::-webkit-scrollbar,
+.alu *::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .alu-scroll {
   flex: 1;
   min-height: 0;
   overflow: auto;
   overscroll-behavior: contain;
-}
-
-.alu-scroll::-webkit-scrollbar {
-  display: none;
 }
 
 .alu-nav {

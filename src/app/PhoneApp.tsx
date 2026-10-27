@@ -1,3 +1,4 @@
+import { useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { HomeIndicator, StatusBar, TabBar } from "@/components/ios/ui";
 import { Overlays } from "@/app/overlays";
@@ -117,7 +118,8 @@ function renderRoute(route: Route, tab: string) {
 export function PhoneApp() {
   const app = useApp();
   const dark = useDark(app.appearance);
-  const mobile = useMobile();
+  const embedded = useEmbedded();
+  const mobile = useMobile() || embedded;
   const scale = useScale(mobile);
   const route = app.stack[app.stack.length - 1] ?? { name: "splash" as const };
 
@@ -130,12 +132,12 @@ export function PhoneApp() {
             style={mobile ? undefined : { transform: `scale(${scale})`, transformOrigin: "top left" }}
           >
             <div className={`alu ${dark ? "dark" : ""}`} style={{ ["--type" as string]: app.typeScale }}>
-              <StatusBar light={app.chromeLight || route.name === "onboarding"} />
+              {!embedded && <StatusBar light={app.chromeLight || route.name === "onboarding"} />}
               <div key={`${routeKey(route)}-${route.name === "tabs" ? app.tab : ""}`} className={`alu-pane ${app.dir}`}>
                 {renderRoute(route, app.tab)}
               </div>
               {route.name === "tabs" && <TabBar />}
-              <HomeIndicator />
+              {!embedded && <HomeIndicator />}
               <Overlays />
             </div>
           </div>
@@ -144,6 +146,20 @@ export function PhoneApp() {
       </div>
     </div>
   );
+}
+
+function useEmbedded() {
+  const href = useLocation({ select: (location) => location.href });
+  const flagged = /(?:\?|&)embed=1(?:&|$)/.test(href);
+  const [framed, setFramed] = useState(false);
+  useEffect(() => {
+    try {
+      setFramed(window.parent !== window);
+    } catch {
+      setFramed(true);
+    }
+  }, []);
+  return flagged || framed;
 }
 
 function useMobile() {
