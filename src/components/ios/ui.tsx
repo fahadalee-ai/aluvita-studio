@@ -479,7 +479,7 @@ export function Screen({
       <div
         className="alu-scroll"
         ref={scroller}
-        style={{ paddingBottom: pad, marginTop: hero ? -96 : 0 }}
+        style={{ paddingBottom: pad, marginTop: hero ? "calc(var(--nav-h) * -1)" : 0 }}
         onScroll={(e) => setCompact(e.currentTarget.scrollTop > (hero ? 220 : 28))}
         onPointerDown={(e) => {
           if (scroller.current && scroller.current.scrollTop <= 0) startY.current = e.clientY;

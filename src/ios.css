@@ -55,6 +55,15 @@
   line-height: 1.35;
   -webkit-font-smoothing: antialiased;
   color-scheme: light;
+  --safe-top: 54px;
+  --nav-h: 96px;
+  --nav-pad: 50px;
+}
+
+.alu.embed {
+  --safe-top: 8px;
+  --nav-h: 48px;
+  --nav-pad: 4px;
 }
 
 .alu.dark {
@@ -220,9 +229,18 @@
   display: grid;
   grid-template-columns: 52px 1fr 52px;
   align-items: end;
-  min-height: 96px;
-  padding: 50px 8px 4px;
+  min-height: var(--nav-h);
+  padding: var(--nav-pad) 8px 4px;
   background: transparent;
+}
+
+.alu.embed .alu-nav {
+  align-items: center;
+}
+
+.alu.embed .alu-nav-title,
+.alu.embed .alu-nav-side {
+  padding-bottom: 0;
 }
 
 .alu-nav.wide-trail {

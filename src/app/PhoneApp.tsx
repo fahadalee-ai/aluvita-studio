@@ -131,7 +131,7 @@ export function PhoneApp() {
             className={`alu-device ${mobile ? "full" : ""}`}
             style={mobile ? undefined : { transform: `scale(${scale})`, transformOrigin: "top left" }}
           >
-            <div className={`alu ${dark ? "dark" : ""}`} style={{ ["--type" as string]: app.typeScale }}>
+            <div className={`alu ${dark ? "dark" : ""} ${embedded ? "embed" : ""}`} style={{ ["--type" as string]: app.typeScale }}>
               {!embedded && <StatusBar light={app.chromeLight || route.name === "onboarding"} />}
               <div key={`${routeKey(route)}-${route.name === "tabs" ? app.tab : ""}`} className={`alu-pane ${app.dir}`}>
                 {renderRoute(route, app.tab)}

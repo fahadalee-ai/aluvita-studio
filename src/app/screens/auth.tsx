@@ -54,7 +54,7 @@ export function OnboardingScreen() {
 
   return (
     <div className="alu-fill">
-      <div style={{ position: "absolute", top: 54, right: 8, zIndex: 5 }}>
+      <div style={{ position: "absolute", top: "var(--safe-top)", right: 8, zIndex: 5 }}>
         <Button
           variant="text"
           onClick={() => {
@@ -120,7 +120,7 @@ export function WelcomeScreen() {
   const app = useApp();
   return (
     <div className="alu-fill">
-      <div className="alu-scroll" style={{ padding: "78px 20px 28px", display: "flex", flexDirection: "column" }}>
+      <div className="alu-scroll" style={{ padding: "calc(var(--safe-top) + 24px) 20px 28px", display: "flex", flexDirection: "column" }}>
         <Wordmark />
         <h1 className="alu-t1" style={{ margin: "22px 0 8px" }}>Welcome to Aluvita Studio</h1>
         <p className="alu-c" style={{ color: "var(--muted)", marginTop: 0 }}>A quiet room on Union Street. Book a class, keep your credits, and come back when you are ready.</p>
@@ -160,7 +160,7 @@ export function LoginScreen() {
         if (!result.ok) setError("That email and password do not match. Try the preview account below.");
       }}
     >
-      <div className="alu-scroll" style={{ padding: "64px 20px 28px" }}>
+      <div className="alu-scroll" style={{ padding: "calc(var(--safe-top) + 10px) 20px 28px" }}>
         <button type="button" className="alu-linkish" onClick={() => app.pop()}>Back</button>
         <Wordmark />
         <h1 className="alu-t1" style={{ margin: "16px 0" }}>Log In</h1>
@@ -253,7 +253,7 @@ export function RegisterScreen() {
         });
       }}
     >
-      <div className="alu-scroll" style={{ padding: "64px 20px 32px" }}>
+      <div className="alu-scroll" style={{ padding: "calc(var(--safe-top) + 10px) 20px 32px" }}>
         <button type="button" className="alu-linkish" onClick={() => app.pop()}>Back</button>
         <div style={{ margin: "8px 0" }}>
           <Wordmark />
@@ -348,7 +348,7 @@ export function VerifyScreen() {
 
   return (
     <div className="alu-fill">
-      <div className="alu-scroll alu-pad" style={{ paddingTop: 78 }}>
+      <div className="alu-scroll alu-pad" style={{ paddingTop: "calc(var(--safe-top) + 24px)" }}>
         <h1 className="alu-t1">Enter the code</h1>
         <p className="alu-c" style={{ color: "var(--muted)" }}>We sent a 6-digit code to {app.pendingUser?.email ?? "your email"}. For this preview, any 6 digits will do.</p>
         <div className="alu-otp">
@@ -415,7 +415,7 @@ export function ForgotScreen() {
         app.push({ name: "forgotSent", email });
       }}
     >
-      <div className="alu-scroll alu-pad" style={{ paddingTop: 78 }}>
+      <div className="alu-scroll alu-pad" style={{ paddingTop: "calc(var(--safe-top) + 24px)" }}>
         <button type="button" className="alu-linkish" onClick={() => app.pop()}>Back</button>
         <h1 className="alu-t1">Forgot password</h1>
         <p className="alu-c" style={{ color: "var(--muted)" }}>We will send a reset link to this address.</p>
@@ -430,7 +430,7 @@ export function ForgotSentScreen({ email }: { email: string }) {
   const app = useApp();
   return (
     <div className="alu-fill">
-      <div className="alu-scroll alu-pad" style={{ paddingTop: 90, textAlign: "center" }}>
+      <div className="alu-scroll alu-pad" style={{ paddingTop: "calc(var(--safe-top) + 36px)", textAlign: "center" }}>
         <CheckMark />
         <h1 className="alu-t2">Check your inbox</h1>
         <p className="alu-c" style={{ color: "var(--muted)" }}>A reset link is on its way to {email}. It expires in 30 minutes.</p>
@@ -472,7 +472,7 @@ export function ResetScreen({ email }: { email: string }) {
         });
       }}
     >
-      <div className="alu-scroll alu-pad" style={{ paddingTop: 78 }}>
+      <div className="alu-scroll alu-pad" style={{ paddingTop: "calc(var(--safe-top) + 24px)" }}>
         <h1 className="alu-t1">New password</h1>
         <p className="alu-f">For {email}</p>
         <TextField label="New password" type="password" value={password} onChange={setPassword} />
