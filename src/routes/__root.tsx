@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppProvider } from "../lib/store";
 import { AppShell } from "../components/AppShell";
+import { asset } from "../lib/utils";
 
 
 function NotFoundComponent() {
@@ -92,7 +93,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#5E8C7B" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: asset("/favicon.svg"), type: "image/svg+xml" },
+    ],
   }),
 
   shellComponent: RootShell,
