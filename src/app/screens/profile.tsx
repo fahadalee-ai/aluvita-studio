@@ -24,6 +24,7 @@ import {
   SwipeRow,
   TextField,
   ToggleRow,
+  Wordmark,
 } from "@/components/ios/ui";
 import {
   faqs,
@@ -36,7 +37,7 @@ import {
   policies,
   todayName,
 } from "@/lib/data";
-import { images, logoUrl } from "@/lib/images";
+import { images } from "@/lib/images";
 import { plans } from "@/lib/data";
 import { useApp } from "@/lib/store";
 import { classCopy } from "@/lib/data";
@@ -335,7 +336,7 @@ export function StudioScreen() {
         ))}
       </div>
       <div className="alu-pad">
-        <img src={logoUrl} alt="Aluvita Studio" style={{ width: 220, borderRadius: 16, background: "#faf7f2" }} />
+        <Wordmark />
         <h2 className="alu-t2">About Aluvita Studio</h2>
         <p className="alu-b">Aluvita is a neighborhood yoga room on Union Street. We opened in 2016 so a practice could feel calm the moment you walk in. Classes stay small, the light is natural, and teachers cue with care.</p>
         <p className="alu-b">Whether you want a strong flow or a long rest, you should feel expected.</p>

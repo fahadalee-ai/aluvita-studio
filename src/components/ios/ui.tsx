@@ -361,6 +361,15 @@ export function CheckMark() {
   );
 }
 
+export function Wordmark({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  return (
+    <p className={`alu-wordmark ${size}`}>
+      Aluvita
+      {size !== "sm" && <small>Studio</small>}
+    </p>
+  );
+}
+
 export function StatusBar({ light }: { light?: boolean }) {
   return (
     <>

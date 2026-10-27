@@ -1,4 +1,3 @@
-import logo from "@/img/logo.jpg";
 import onboarding1 from "@/img/ai/onboarding-1.jpg";
 import onboarding2 from "@/img/ai/onboarding-2.jpg";
 import onboarding3 from "@/img/ai/onboarding-3.jpg";
@@ -25,8 +24,6 @@ import promo1 from "@/img/ai/promo-first-class.jpg";
 import promo2 from "@/img/ai/promo-friend.jpg";
 import promo3 from "@/img/ai/promo-sunrise.jpg";
 import map from "@/img/ai/map-studio.jpg";
-
-export const logoUrl = logo;
 
 export const images = {
   onboarding1,

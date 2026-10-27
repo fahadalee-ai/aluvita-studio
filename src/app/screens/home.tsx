@@ -1,4 +1,4 @@
-import { BellButton, Button, ClassCard, CreditRing, Screen } from "@/components/ios/ui";
+import { BellButton, Button, ClassCard, CreditRing, Screen, Wordmark } from "@/components/ios/ui";
 import {
   announcements,
   formatDay,
@@ -10,7 +10,7 @@ import {
   startsIn,
   todayHours,
 } from "@/lib/data";
-import { images, logoUrl } from "@/lib/images";
+import { images } from "@/lib/images";
 import { useApp } from "@/lib/store";
 
 export function HomeScreen() {
@@ -32,7 +32,7 @@ export function HomeScreen() {
       title={greeting(name)}
       trailing={
         <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-          <img src={logoUrl} alt="Aluvita Studio" style={{ height: 36, width: "auto", borderRadius: 8, background: "#faf7f2" }} />
+          <Wordmark size="sm" />
           <BellButton />
         </span>
       }

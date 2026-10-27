@@ -1033,16 +1033,39 @@
 }
 
 .alu-logo-pop {
-  width: 230px;
   animation: alu-logo 0.9s cubic-bezier(0.32, 0.72, 0, 1) both, alu-breathe 2.8s ease-in-out 0.9s infinite;
 }
 
-.alu-logo-pop img {
-  width: 100%;
-  height: auto;
+.alu-wordmark {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: 1;
+}
+
+.alu-wordmark small {
   display: block;
-  border-radius: 18px;
-  background: #faf7f2;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.alu-wordmark.lg {
+  font-size: calc(40px * var(--type));
+  text-align: center;
+}
+
+.alu-wordmark.md {
+  font-size: calc(32px * var(--type));
+}
+
+.alu-wordmark.sm {
+  font-size: calc(17px * var(--type));
+  letter-spacing: -0.3px;
 }
 
 .alu-tag {
